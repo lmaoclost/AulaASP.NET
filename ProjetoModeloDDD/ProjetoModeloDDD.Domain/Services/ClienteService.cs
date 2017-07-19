@@ -7,17 +7,14 @@ using System.Linq;
 
 namespace ProjetoModeloDDD.Domain.Services
 {
-    public class ClienteService : ServiceBase<Cliente>, IClienteService
+   public class ClienteService : ServiceBase<Cliente>, IClienteService
     {
         private readonly IClienteRepository _clienteRepository;
 
-        public ClienteService(IClienteRepository clienteRepository) :base(clienteRepository)
+        public ClienteService(IClienteRepository clienteRepository)
+            : base(clienteRepository)
         {
-
-        }
-
-        public ClienteService(IRepositoryBase<Cliente> repository) : base(repository)
-        {
+            _clienteRepository = clienteRepository;
         }
 
         public IEnumerable<Cliente> ObterClientesEspeciais(IEnumerable<Cliente> clientes)
